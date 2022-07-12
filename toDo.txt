@@ -1,9 +1,17 @@
-To do RTL Model
+General goal
 
--> Logic gates : AND, NOT, OR, XOR : presentation 1
--> Multiplexer : presentation 2
--> Adder : presentation 3 (need logic gates)
--> Registers, flip-flop : presentation 5
+To adapt from previous work
+-> Set of instructions to RISC-V
+-> Switch to 32 bits
+
+To do RTL Model
+1st week :
+-> Logic gates : AND, NOT, OR, XOR, ... : presentation 1 Maelys
+-> Multiplexer : presentation 2 Tim
+-> Adder : presentation 3 (need logic gates) Arthur
+-> Registers, flip-flop : presentation 5 Roman
+
+Following :
 -> Datapath : presentation 7 (need quite everything)
 -> Controller and FSM : presentation 9 (already done in another course by Arthur)
 -> Model of processor : presentation 10
