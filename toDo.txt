@@ -1,0 +1,11 @@
+To do RTL Model
+
+-> Logic gates : AND, NOT, OR, XOR : presentation 1
+-> Multiplexer : presentation 2
+-> Adder : presentation 3 (need logic gates)
+-> Registers, flip-flop : presentation 5
+-> Datapath : presentation 7 (need quite everything)
+-> Controller and FSM : presentation 9 (already done in another course by Arthur)
+-> Model of processor : presentation 10
+
+Every part must come with its tests 
