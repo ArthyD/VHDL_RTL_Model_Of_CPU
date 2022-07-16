@@ -32,12 +32,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity DFlipFlopAsyncReset is
---  Port ( );
+    port(
+        d: in bit;
+        clk, rst: in bit;
+        q: out bit
+    );
 end DFlipFlopAsyncReset;
 
 architecture RTL of DFlipFlopAsyncReset is
-
 begin
-
-
+    process (clk, rst)
+    begin
+        if rst = '1' then
+            q <= '0';
+        elsif clk = '1' and clk'event then
+            q <= d;
+        end if;
+    end process;
 end RTL;

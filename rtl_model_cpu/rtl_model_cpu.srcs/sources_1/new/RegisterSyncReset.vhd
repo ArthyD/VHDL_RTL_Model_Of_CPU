@@ -32,12 +32,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity RegisterSyncReset is
---  Port ( );
+    generic(
+        register_size: integer := 31
+    );
+    port(
+        d_in :in bit_vector(register_size downto 0);
+        clk, rst, enable: in bit;
+        q_out :out bit_vector(register_size downto 0)
+    );
 end RegisterSyncReset;
 
 architecture RTL of RegisterSyncReset is
-
 begin
-
-
+    process
+    begin
+        wait until clk = '1';
+        if rst = '1' then
+            q_out <= (others => '0');
+        else
+            if enable = '1' then
+                q_out <= d_in;
+            end if;
+        end if;
+    end process;
 end RTL;

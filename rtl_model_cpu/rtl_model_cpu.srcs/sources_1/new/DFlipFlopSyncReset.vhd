@@ -32,12 +32,23 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity DFlipFlopSyncReset is
---  Port ( );
+    port(
+        d: in bit;
+        clk, rst: in bit;
+        q: out bit
+    );
 end DFlipFlopSyncReset;
 
 architecture RTL of DFlipFlopSyncReset is
-
 begin
-
-
+    process (clk)
+    begin
+        if clk = '1' and clk'event then
+            if rst = '1' then
+                q <= '0';
+            else
+                q <= d;
+            end if;
+        end if;
+    end process;
 end RTL;

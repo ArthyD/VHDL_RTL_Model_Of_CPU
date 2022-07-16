@@ -32,10 +32,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity RegisterAsyncReset is
+    generic(
+        register_size: integer := 31
+    );
     port(
-        d_in: in bit_vector(31 downto 0);
+        d_in: in bit_vector(register_size downto 0);
         rst, clk, enable: in bit;
-        q_out: out bit_vector(31 downto 0)
+        q_out: out bit_vector(register_size downto 0)
     );
 end RegisterAsyncReset;
 
@@ -43,9 +46,9 @@ architecture RTL of RegisterAsyncReset is
 begin
     process(rst, clk)
     begin
-        if rst = '0' then
-            q_out <= B"0000_0000_0000_0000_0000_0000_0000_0000";
-        elsif clk = '1' and CLK'event then
+        if rst = '1' then
+            q_out <= (others => '0');
+        elsif clk = '1' and clk'event then
             if enable = '1' then
                 q_out <= d_in;
             end if;
