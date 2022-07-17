@@ -1,0 +1,16 @@
+0.6
+2019.2
+Nov  6 2019
+21:42:20
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/DFlipFlopAsyncReset_TestBench.vhd,1658057521,vhdl,,,,dflipflopasyncreset_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/DFlipFlopSyncResetEnable_TestBench.vhd,1658057755,vhdl,,,,dflipflopsyncresetenable_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/DFlipFlopSyncReset_TestBench.vhd,1658057584,vhdl,,,,dflipflopsyncreset_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/DFlipFlop_TestBench.vhd,1658057613,vhdl,,,,dflipflop_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/RegisterAsyncReset_TestBench.vhd,1658057669,vhdl,,,,registerasyncreset_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/RegisterSyncReset_TestBench.vhd,1658057731,vhdl,,,,registersyncreset_testbench,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/DFlipFlop.vhd,1658055581,vhdl,,,,dflipflop,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/DFlipFlopAsyncReset.vhd,1658023636,vhdl,,,,dflipflopasyncreset,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/DFlipFlopSyncReset.vhd,1658023636,vhdl,,,,dflipflopsyncreset,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/DFlipFlopSyncResetEnable.vhd,1658023636,vhdl,,,,dflipflopsyncresetenable,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/RegisterAsyncReset.vhd,1658023636,vhdl,,,,registerasyncreset,,,,,,,,
+/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/RegisterSyncReset.vhd,1658023655,vhdl,,,,registersyncreset,,,,,,,,

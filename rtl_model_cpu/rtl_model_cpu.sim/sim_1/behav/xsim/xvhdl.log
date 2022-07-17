@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sources_1/new/RegisterSyncReset.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RegisterSyncReset'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/raver/Desktop/university/master/semester_04/vhdl/projects/VHDL_RTL_Model_Of_CPU/rtl_model_cpu/rtl_model_cpu.srcs/sim_1/new/RegisterSyncReset_TestBench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RegisterSyncReset_TestBench'
