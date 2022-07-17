@@ -1,7 +1,0 @@
-Running: xsim.dir/RegisterSyncReset_TestBench_behav/xsimk -simmode gui -wdb RegisterSyncReset_TestBench_behav.wdb -simrunnum 0 -socket 50331
-Design successfully loaded
-Design Loading Memory Usage: 33408 KB (Peak: 33408 KB)
-Design Loading CPU Usage: 10 ms
-Simulation completed
-Simulation Memory Usage: 115144 KB (Peak: 172676 KB)
-Simulation CPU Usage: 20 ms

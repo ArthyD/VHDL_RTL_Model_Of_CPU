@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../rtl_model_cpu.srcs/sources_1/new/DFlipFlopSyncReset.vhd" \
-"../../../../rtl_model_cpu.srcs/sim_1/new/DFlipFlopSyncReset_TestBench.vhd" \
-
-# Do not sort compile order
-nosort

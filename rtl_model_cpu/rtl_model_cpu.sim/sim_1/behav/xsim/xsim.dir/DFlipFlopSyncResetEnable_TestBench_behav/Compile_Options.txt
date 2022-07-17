@@ -1,1 +1,0 @@
--wto "f1f6741dfaaf4609b319d0a0eb616ae0" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "DFlipFlopSyncResetEnable_TestBench_behav" "xil_defaultlib.DFlipFlopSyncResetEnable_TestBench" -log "elaborate.log" 
