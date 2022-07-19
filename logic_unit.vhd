@@ -18,12 +18,12 @@ port(
 	b	:	in	std_logic;
     c	:	out	std_logic;
 );
-end entity;
+end and;
 
-architecture Behavioral of and is
+architecture AND_Behavioral of and is
 begin
     c <= a AND b;
-end and
+end AND_Behavioral
 
 entity or is 
 port(
@@ -31,24 +31,24 @@ port(
 	b	:	in	std_logic;
     c	:	out	std_logic;
 );
-end entity;
+end or;
 
-architecture Behavioral of or is
+architecture OR_Behavioral of or is
 begin
     c <= a OR b;
-end or
+end OR_Behavioral
 
 entity not is 
 port(
     a	:	in	std_logic;
     b	:	out	std_logic;
 );
-end entity;
+end not;
 
-architecture Behavioral of not is
+architecture NOT_Behavioral of not is
 begin
     b <= NOT a;
-end not
+end NOT_Behavioral
 
 entity xor is 
 port(
@@ -56,9 +56,9 @@ port(
 	b	:	in	std_logic;
     c	:	out	std_logic;
 );
-end entity;
+end xor;
 
-architecture Behavioral of xor is
+architecture XOR_Behavioral of xor is
 begin
     c <= a XOR b;
-end xor
+end XOR_Behavioral
