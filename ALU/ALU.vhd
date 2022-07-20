@@ -30,4 +30,12 @@ architecture Behavioral of ALU is
 
 begin
 
+adder: entity work.adder(Behavioral)
+port map(
+	a	=>	operand1,
+	b	=>	operand2,
+	neg_b	=>	'0',
+	s	=>	result
+);
+
 end Behavioral;
