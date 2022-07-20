@@ -13,9 +13,7 @@ use work.cpu_defs_pack.all;
 
 
 entity test_logic_unit is
---  Port ( );
-Generic (
-);
+
 end test_logic_unit;
 
 architecture Behavioral of test_logic_unit is
@@ -34,21 +32,21 @@ port map(
     c => out_and
 );
 
-logic_unit: entity work.logic_unit(OR_Behavioral)
+logic_unit1: entity work.logic_unit(OR_Behavioral)
 port map(
     a => a,
     b => b,
     c => out_or
 );
 
-logic_unit: entity work.logic_unit(XOR_Behavioral)
+logic_unit2: entity work.logic_unit(XOR_Behavioral)
 port map(
     a => a,
     b => b,
     c => out_xor
 );
 
-logic_unit: entity work.logic_unit(NOT_Behavioral)
+logic_unit3: entity work.logic_unit(NOT_Behavioral)
 port map(
     a => a,
     c => out_not

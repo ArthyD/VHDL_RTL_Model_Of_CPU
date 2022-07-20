@@ -12,38 +12,48 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity SLL is 
+entity SLL2 is 
 port(
     a	:	in	std_logic;
-	b	:	out	std_logic;
+	b	:	out	std_logic
 );
-end SLL;
+end SLL2;
 
-architecture SLL_Behavioral of SLL is
+architecture SLL_Behavioral of SLL2 is
 begin
-    c <= a(30 downto 0)& '0' ;
-end SLL_Behavioral
+    b <= a(30 downto 0)& '0' ;
+end SLL_Behavioral;
 
-entity SRL is 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
+entity SRL2 is 
 port(
     a	:	in	std_logic;
-	b	:	out	std_logic;
+	b	:	out	std_logic
 );
-end SRL;
+end SRL2;
 
-architecture SRL_Behavioral of SRL is
+architecture SRL_Behavioral of SRL2 is
 begin
-    c <= '0' & a(31 downto 1) ;
-end SRL_Behavioral
+    b <= '0' & a(31 downto 1) ;
+end SRL_Behavioral;
 
-entity SRA is 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
+entity SRA2 is 
 port(
     a	:	in	std_logic;
-	b	:	out	std_logic;
+	b	:	out	std_logic
 );
-end SRA;
+end SRA2;
 
-architecture SRA_Behavioral of SRA is
+architecture SRA_Behavioral of SRA2 is
 begin
-    c <= A(31) & '0' & A(30 downto 1) ;
-end SRA_Behavioral
+    b <= a(31) & '0' & a(30 downto 1) ;
+end SRA_Behavioral;

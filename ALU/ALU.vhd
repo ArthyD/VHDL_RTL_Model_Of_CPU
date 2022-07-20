@@ -18,8 +18,8 @@ entity ALU is
             operand2       :       in      data_type;
             carry          :	   in	   STD_LOGIC;
             operation      :       in	   opcode_type;
-            result         :       out     data_type;
-    );
+            result         :       out     data_type
+     );
 end ALU;
 
 architecture Behavioral of ALU is
@@ -30,4 +30,4 @@ architecture Behavioral of ALU is
 
 begin
 
-end Behavioral
+end Behavioral;

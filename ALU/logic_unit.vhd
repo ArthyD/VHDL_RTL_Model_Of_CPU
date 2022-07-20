@@ -12,53 +12,68 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity and is 
+entity and2 is 
 port(
     a	:	in	std_logic;
 	b	:	in	std_logic;
-    c	:	out	std_logic;
+    c	:	out	std_logic
 );
-end and;
+end and2;
 
-architecture AND_Behavioral of and is
+architecture AND_Behavioral of and2 is
 begin
     c <= a AND b;
-end AND_Behavioral
+end AND_Behavioral;
 
-entity or is 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
+entity or2 is 
 port(
     a	:	in	std_logic;
 	b	:	in	std_logic;
-    c	:	out	std_logic;
+    c	:	out	std_logic
 );
-end or;
+end or2;
 
-architecture OR_Behavioral of or is
+architecture OR_Behavioral of or2 is
 begin
     c <= a OR b;
-end OR_Behavioral
+end OR_Behavioral;
 
-entity not is 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
+entity not2 is 
 port(
     a	:	in	std_logic;
-    b	:	out	std_logic;
+    b	:	out	std_logic
 );
-end not;
+end not2;
 
-architecture NOT_Behavioral of not is
+architecture NOT_Behavioral of not2 is
 begin
     b <= NOT a;
-end NOT_Behavioral
+end NOT_Behavioral;
 
-entity xor is 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
+entity xor2 is 
 port(
     a	:	in	std_logic;
 	b	:	in	std_logic;
-    c	:	out	std_logic;
+    c	:	out	std_logic
 );
-end xor;
+end xor2;
 
-architecture XOR_Behavioral of xor is
+architecture XOR_Behavioral of xor2 is
 begin
     c <= a XOR b;
-end XOR_Behavioral
+end XOR_Behavioral;
