@@ -21,3 +21,10 @@ entity ALU is
             result         :       out     data_type;
     );
 end ALU;
+
+architecture Behavioral of ALU is
+
+
+begin
+
+end Behavioral
