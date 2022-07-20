@@ -17,30 +17,25 @@ entity test_shifter is
 end test_shifter;
 
 architecture Behavioral of test_shifter is
-    signal a : std_logic_vector(data_width-1 downto 0):=(others =>'1');
-    signal out_SLL : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_SRL : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_SRA : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal a : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal b : std_logic_vector(data_width-1 downto 0):=(others =>'1');
+    signal out_SLT : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal out_SLTU : std_logic_vector(data_width-1 downto 0):=(others =>'0');
 
 begin
-shifter: entity work.shifter(SLL_Behavioral)
-port map(
-    a => a,
-    b => out_SLL
-);
-
-shifter: entity work.shifter(SRL_Behavioral)
-port map(
-    a => a,
-    b => out_SRL
-);
-
-shifter: entity work.shifter(SRA_Behavioral)
+comparator: entity work.comparator(SLL_Behavioral)
 port map(
     a => a,
     b => b,
-    c => out_SRA
+    c => out_SLT
 );
 
-end Behavioral;
+comparator: entity work.comparator(SLTU_Behavioral)
+port map(
+    a => a,
+    b => b,
+    c => out_SLTU
+);
 
+
+end Behavioral;

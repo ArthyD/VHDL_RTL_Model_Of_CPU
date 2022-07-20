@@ -23,7 +23,10 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
-
+    signal out_adder : std_logic_vector(data_width-1 downto 0):=(others =>'0');   
+    signal out_logic_unit : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal out_shifter : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal out_comparator : std_logic_vector(data_width-1 downto 0):=(others =>'0');
 
 begin
 
