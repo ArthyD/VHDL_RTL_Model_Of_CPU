@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/21/2022 10:08:30 PM
+-- Create Date: 07/16/2022 03:42:53 PM
 -- Design Name: 
--- Module Name: demux1_1x4 - RTL
+-- Module Name: DFlipFlopSyncResetEnable - RTL
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,29 +31,26 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-
-entity demux1_1x4 is
+entity DFlipFlopSyncResetEnable is
     port(
-        d_in: in bit; 
-        select_input: in bit_vector(1 downto 0);
-        d_out_a, d_out_b, d_out_c, d_out_d: out bit
+        d: in bit;
+        clk, rst, enable: in bit;
+        q: out bit
     );
-end demux1_1x4;
+end DFlipFlopSyncResetEnable;
 
-architecture RTL of demux1_1x4 is
+architecture RTL of DFlipFlopSyncResetEnable is
+
 begin
-    process(d_in, select_input)
+    process
     begin
-        d_out_a <= '0';
-        d_out_b <= '0';
-        d_out_c <= '0';
-        d_out_d <= '0';
-
-        case select_input is
-            when "00" => d_out_a <= d_in;
-            when "01" => d_out_b <= d_in;
-            when "10" => d_out_c <= d_in;
-            when "11" => d_out_d <= d_in;
-        end case;
+        wait until clk = '1';  -- is there a difference between "wait until clk='1'" and "clk='1' and clk'event"?
+        if rst = '1' then
+            q <= '0';
+        else
+            if enable = '1' then
+                q <= d;
+            end if;
+        end if;
     end process;
 end RTL;

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/21/2022 10:08:30 PM
+-- Create Date: 07/16/2022 03:40:39 PM
 -- Design Name: 
--- Module Name: demux1_1x4 - RTL
+-- Module Name: DFlipFlop - RTL
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,29 +31,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-
-entity demux1_1x4 is
-    port(
-        d_in: in bit; 
-        select_input: in bit_vector(1 downto 0);
-        d_out_a, d_out_b, d_out_c, d_out_d: out bit
+entity DFlipFlop is
+    port (
+        d: in bit;
+        clk: in bit;
+        q: out bit
     );
-end demux1_1x4;
+end DFlipFlop;
 
-architecture RTL of demux1_1x4 is
+architecture RTL of DFlipFlop is
 begin
-    process(d_in, select_input)
+    process(clk)
     begin
-        d_out_a <= '0';
-        d_out_b <= '0';
-        d_out_c <= '0';
-        d_out_d <= '0';
-
-        case select_input is
-            when "00" => d_out_a <= d_in;
-            when "01" => d_out_b <= d_in;
-            when "10" => d_out_c <= d_in;
-            when "11" => d_out_d <= d_in;
-        end case;
+        if clk = '1' and clk'event then
+            q <= d;
+        end if;
     end process;
 end RTL;
