@@ -9,29 +9,22 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use work.cpu_defs_pack.all;
 
 entity memory is
-    Port ( w_addr : in STD_LOGIC_VECTOR (15 downto 0);
-           w_en : in STD_LOGIC;
-           w_rdy : out STD_LOGIC;
-           w_data : in STD_LOGIC_VECTOR (31 downto 0);
-           w_mode : in STD_LOGIC_VECTOR (1 downto 0);
-           r_rdy : out STD_LOGIC;
-           r_data : out STD_LOGIC_VECTOR (31 downto 0);
-           r_addr : in STD_LOGIC_VECTOR (15 downto 0);
-           r_en : in STD_LOGIC;
-           r_mode : in STD_LOGIC_VECTOR (1 downto 0);
-           CLK : in STD_LOGIC;
-           RST : in STD_LOGIC);
+    Port ( w_addr       : in    addr_type;
+           w_en         : in    STD_LOGIC;
+           w_rdy        : out   STD_LOGIC;
+           w_data       : in    data_type;
+           w_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
+           r_rdy        : out   STD_LOGIC;
+           r_data       : out   data_type;
+           r_addr       : in    addr_type;
+           r_en         : in    STD_LOGIC;
+           r_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
+           CLK          : in    STD_LOGIC;
+           RST          : in    STD_LOGIC);
 end memory;
 
 architecture Behavioral of memory is
@@ -40,8 +33,8 @@ begin
 
 process(CLK, RST)
 
-type memtype is array (integer range 2**14 - 1 downto 0) of STD_LOGIC_VECTOR (31 downto 0);
-variable mem : memtype;
+
+variable mem : mem_type;
 variable tmp_addr : integer;
 
 begin

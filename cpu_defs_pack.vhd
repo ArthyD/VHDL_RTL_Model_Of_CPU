@@ -6,19 +6,9 @@
 -- Project Name: CPU RTL model
 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 
 package cpu_defs_pack is
@@ -46,7 +36,7 @@ package cpu_defs_pack is
     type reg_type is array(integer range 0 to 2**reg_addr_width-1) of data_type;
 
     type mem_type is array(integer range 0 to 2**addr_width-1) of data_type;
-
+    
     -- Loads instruction --
     constant code_lb : opcode_type := "";
     constant code_lbu : opcode_type := "";

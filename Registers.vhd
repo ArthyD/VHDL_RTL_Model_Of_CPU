@@ -18,10 +18,11 @@ entity Registers is
             clk              : in	    std_logic;
             rst              : in       std_logic;
             enable           : in       std_logic;
-            sel_in           : in       reg_addr_type;
-            sel_out_a        : in       reg_addr_type;
-            sel_out_b        : in       reg_addr_type;
-            sel_out_c        : in       reg_addr_type;
+            -- Register 1, 2, 3 or 4 : entry of mux
+            sel_in           : in       std_logiv_vector(1 downto 0); -- Register selection where we write data_in
+            sel_out_a        : in       std_logiv_vector(1 downto 0); -- Register selction for output
+            sel_out_b        : in       std_logiv_vector(1 downto 0);
+            sel_out_c        : in       std_logiv_vector(1 downto 0);
             data_out_a       : out      data_type;
             data_out_b       : out      data_type;
             data_out_c       : out      data_type;      
