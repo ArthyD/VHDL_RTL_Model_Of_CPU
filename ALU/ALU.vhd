@@ -8,6 +8,7 @@
 ----------------------------------------------------------------------------------
 
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
@@ -30,12 +31,40 @@ architecture Behavioral of ALU is
 
 begin
 
-adder: entity work.adder(Behavioral)
+if (operation= code_add) then
+    adder: entity work.adder(Behavioral)
+    port map(
+        a	=>	operand1,
+        b	=>	operand2,
+        neg_b	=>	'0',
+        s	=>	out_adder
+    );
+else
+    adder: entity work.adder(Behavioral)
+    port map(
+        a	=>	operand1,
+        b	=>	operand2,
+        neg_b	=>	'1',
+        s	=>	out_adder
+    );
+end if;
+
+logic: entity work.logic_unit(Behavioral)
 port map(
-	a	=>	operand1,
-	b	=>	operand2,
-	neg_b	=>	'0',
-	s	=>	out_adder
+    a => operand1,
+    b => operand2,
+    code => operation,
+    c => out_logic_unit
 );
+
+shifter: entity work.shifter(Behavioral)
+port map(
+    a => operand1,
+    code => operation,
+    s => out_shifter
+);
+
+
+
 
 end Behavioral;

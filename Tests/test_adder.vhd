@@ -7,6 +7,7 @@
 
 ----------------------------------------------------------------------------------
 library IEEE;
+use work.cpu_defs_pack.all;
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using

@@ -28,21 +28,21 @@ shifterSLL: entity work.shifter(Behavioral)
 port map(
     a => a,
     code => code_sll,
-    b => out_SLL
+    s => out_SLL
 );
 
 shifterSRL: entity work.shifter(Behavioral)
 port map(
     a => a,
     code => code_srl,
-    b => out_SRL
+    s => out_SRL
 );
 
 shifterSRA: entity work.shifter(Behavioral)
 port map(
     a => a,
     code => code_sra,
-    b => out_SRA
+    s => out_SRA
 );
 
 end Behavioral;

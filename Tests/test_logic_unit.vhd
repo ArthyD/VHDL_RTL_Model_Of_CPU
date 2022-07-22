@@ -23,35 +23,39 @@ architecture Behavioral of test_logic_unit is
     signal out_and : data_type:=(others =>'0');
     signal out_or : data_type:=(others =>'0');
     signal out_xor : data_type:=(others =>'0');
-    signal out_not : data_type:=(others =>'0');
+    --signal out_not : data_type:=(others =>'0');
 
 begin
-logic_unit: entity work.logic_unit(AND_Behavioral)
+
+and2: entity work.logic_unit(Behavioral)
 port map(
     a => a,
     b => b,
-    c => out_and
+    code => code_and,
+    s => out_and
 );
 
-logic_unit1: entity work.logic_unit(OR_Behavioral)
+or2: entity work.logic_unit(Behavioral)
 port map(
     a => a,
     b => b,
-    c => out_or
+    code => code_or,
+    s => out_or
 );
 
-logic_unit2: entity work.logic_unit(XOR_Behavioral)
+xor2: entity work.logic_unit(Behavioral)
 port map(
     a => a,
     b => b,
-    c => out_xor
+    code => code_xor,
+    s => out_xor
 );
 
-logic_unit3: entity work.logic_unit(NOT_Behavioral)
-port map(
-    a => a,
-    c => out_not
-);
+--logic_unit3: entity work.logic_unit(NOT_Behavioral)
+--port map(
+--    a => a,
+--    c => out_not
+--);
 
 end Behavioral;
 

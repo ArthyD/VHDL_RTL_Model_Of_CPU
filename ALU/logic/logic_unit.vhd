@@ -16,8 +16,9 @@ use work.cpu_defs_pack.all;
 entity logic_unit is 
 port(
     a	:	in	data_type;
+    b   :   in  data_type;
     code:	in	opcode_type;
-    b	:	out	data_type
+    s	:	out	data_type
 );
 end logic_unit;
 
@@ -27,21 +28,25 @@ begin
         and2: entity work.and2(Behavioral)
         port map(
             a => a,
-            b => s
+            b => b,
+            c => s
         );
     elsif(code = code_or) then
         or2: entity work.or2(Behavioral)
         port map(
             a => a,
-            b => s
+            b => b,
+            c => s
         );       
     elsif(code = code_xor) then
         xor2: entity work.xor2(Behavioral)
         port map(
             a => a,
-            b => s
+            b => b,
+            c => s
         ); 
     else
         s <= (others =>'0');
+        
 end Behavioral;
 

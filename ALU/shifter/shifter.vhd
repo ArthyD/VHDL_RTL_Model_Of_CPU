@@ -23,19 +23,19 @@ end shifter;
 
 architecture Behavioral of shifter is
 begin
-    if(code = code_sll) then
+    if (code = code_sll) then
         sll2: entity work.sll2(Behavioral)
         port map(
             a => a,
             b => s
         );
-    elsif(code = code_srl) then
+    elsif (code = code_srl) then
         srl2: entity work.srl2(Behavioral)
         port map(
             a => a,
             b => s
         );       
-    elsif(code = code_sra) then
+    elsif (code = code_sra) then
         sra2: entity work.sra2(Behavioral)
         port map(
             a => a,
