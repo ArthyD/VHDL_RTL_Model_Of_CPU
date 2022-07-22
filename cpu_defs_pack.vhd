@@ -54,7 +54,7 @@ package cpu_defs_pack is
     -- Special arithmetic load move --
     constant code_lui : opcode_type := "";
     constant code_auipc : opcode_type := "";
-    -- Logoc instructions --
+    -- Logic instructions --
     constant code_xor : opcode_type := "";
     constant code_or : opcode_type := "";
     constant code_and : opcode_type := "";
