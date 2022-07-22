@@ -12,14 +12,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity sll2 is 
+entity not2 is 
 port(
     a	:	in	data_type;
-	b	:	out	data_type
+    b	:	out	data_type
 );
-end sll2;
+end not2;
 
-architecture Behavioral of sll2 is
+architecture Behavioral of not2 is
 begin
-    b <= a(30 downto 0)& '0' ;
+    b <= NOT a;
 end Behavioral;
+

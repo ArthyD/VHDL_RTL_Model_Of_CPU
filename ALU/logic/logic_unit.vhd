@@ -13,34 +13,35 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity shifter is 
-Port (
-        a       :       in      data_type;
-	    code	:	    in	    opcode_type;
-        s       :       out	    data_type
+entity logic_unit is 
+port(
+    a	:	in	data_type;
+    code:	in	opcode_type;
+    b	:	out	data_type
 );
-end shifter;
+end logic_unit;
 
-architecture Behavioral of shifter is
+architecture Behavioral of logic_unit is
 begin
-    if(code = code_sll) then
-        sll2: entity work.sll2(Behavioral)
+    if(code = code_and) then
+        and2: entity work.and2(Behavioral)
         port map(
             a => a,
             b => s
         );
-    elsif(code = code_srl) then
-        srl2: entity work.srl2(Behavioral)
+    elsif(code = code_or) then
+        or2: entity work.or2(Behavioral)
         port map(
             a => a,
             b => s
         );       
-    elsif(code = code_sra) then
-        sra2: entity work.sra2(Behavioral)
+    elsif(code = code_xor) then
+        xor2: entity work.xor2(Behavioral)
         port map(
             a => a,
             b => s
-        );  
+        ); 
     else
         s <= (others =>'0');
 end Behavioral;
+
