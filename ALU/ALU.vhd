@@ -54,7 +54,7 @@ port map(
     a => operand1,
     b => operand2,
     code => operation,
-    c => out_logic_unit
+    s => out_logic_unit
 );
 
 shifter: entity work.shifter(Behavioral)
@@ -64,7 +64,11 @@ port map(
     s => out_shifter
 );
 
-
-
+case operation is
+when code_add | code_sub => result <= out_adder;
+when code_and | code_or | code_xor => result <= out_logic_unit;
+when code_sra | code_sll | code_srl => result <= out_shifter;
+when others => null;
+end case;
 
 end Behavioral;
