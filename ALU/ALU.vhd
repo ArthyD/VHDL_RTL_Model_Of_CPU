@@ -17,37 +17,37 @@ entity ALU is
     Port (
             operand1       :       in      data_type;
             operand2       :       in      data_type;
-            carry          :	   in	   STD_LOGIC;
             operation      :       in	   opcode_type;
             result         :       out     data_type
      );
 end ALU;
 
 architecture Behavioral of ALU is
-    signal out_adder : data_type:=(others =>'0');   
+    signal out_add : data_type:=(others =>'0');   
+    signal out_sub : data_type:=(others =>'0');   
     signal out_logic_unit : data_type:=(others =>'0');
     signal out_shifter : data_type:=(others =>'0');
     signal out_comparator : data_type:=(others =>'0');
 
 begin
 
-if (operation= code_add) then
-    adder: entity work.adder(Behavioral)
-    port map(
-        a	=>	operand1,
-        b	=>	operand2,
-        neg_b	=>	'0',
-        s	=>	out_adder
-    );
-else
-    adder: entity work.adder(Behavioral)
-    port map(
-        a	=>	operand1,
-        b	=>	operand2,
-        neg_b	=>	'1',
-        s	=>	out_adder
-    );
-end if;
+
+add: entity work.adder(Behavioral)
+port map(
+    a	=>	operand1,
+    b	=>	operand2,
+    neg_b	=>	'0',
+    s	=>	out_add
+);
+
+sub: entity work.adder(Behavioral)
+port map(
+    a	=>	operand1,
+    b	=>	operand2,
+    neg_b	=>	'1',
+    s	=>	out_sub
+);
+
 
 logic: entity work.logic_unit(Behavioral)
 port map(
@@ -64,11 +64,15 @@ port map(
     s => out_shifter
 );
 
+
+process_ALU : process(operand1) begin
 case operation is
-when code_add | code_sub => result <= out_adder;
+when code_add => result <= out_add;
+when code_sub => result <= out_sub;
 when code_and | code_or | code_xor => result <= out_logic_unit;
 when code_sra | code_sll | code_srl => result <= out_shifter;
 when others => null;
 end case;
+end process;
 
 end Behavioral;

@@ -24,6 +24,7 @@ architecture Behavioral of test_shifter is
     signal out_SRA : data_type:=(others =>'0');
 
 begin
+
 shifterSLL: entity work.shifter(Behavioral)
 port map(
     a => a,
