@@ -29,9 +29,9 @@ architecture Behavioral of test_adder is
     signal a : integer := 5;
     signal b : integer := 7;
     signal s : integer;
-    signal a_bit : std_logic_vector(input_width-1 downto 0);
-    signal b_bit : std_logic_vector(input_width-1 downto 0);
-    signal s_bit : std_logic_vector(input_width-1 downto 0);
+    signal a_bit : data_type;
+    signal b_bit : data_type;
+    signal s_bit : data_type;
     
 
 begin

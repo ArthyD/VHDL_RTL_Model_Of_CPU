@@ -7,6 +7,7 @@
 
 ----------------------------------------------------------------------------------
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
@@ -17,29 +18,31 @@ entity test_shifter is
 end test_shifter;
 
 architecture Behavioral of test_shifter is
-    signal a : std_logic_vector(data_width-1 downto 0):=(others =>'1');
-    signal out_SLL : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_SRL : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_SRA : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal a : data_type:=(others =>'1');
+    signal out_SLL : data_type:=(others =>'0');
+    signal out_SRL : data_type:=(others =>'0');
+    signal out_SRA : data_type:=(others =>'0');
 
 begin
-shifter: entity work.shifter(SLL_Behavioral)
+shifterSLL: entity work.shifter(Behavioral)
 port map(
     a => a,
+    code => code_sll,
     b => out_SLL
 );
 
-shifter: entity work.shifter(SRL_Behavioral)
+shifterSRL: entity work.shifter(Behavioral)
 port map(
     a => a,
+    code => code_srl,
     b => out_SRL
 );
 
-shifter: entity work.shifter(SRA_Behavioral)
+shifterSRA: entity work.shifter(Behavioral)
 port map(
     a => a,
-    b => b,
-    c => out_SRA
+    code => code_sra,
+    b => out_SRA
 );
 
 end Behavioral;

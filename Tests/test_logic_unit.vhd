@@ -7,6 +7,7 @@
 
 ----------------------------------------------------------------------------------
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
@@ -17,12 +18,12 @@ entity test_logic_unit is
 end test_logic_unit;
 
 architecture Behavioral of test_logic_unit is
-    signal a : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal b : std_logic_vector(data_width-1 downto 0):=(others =>'1');
-    signal out_and : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_or : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_xor : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_not : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+    signal a : data_type:=(others =>'0');
+    signal b : data_type:=(others =>'1');
+    signal out_and : data_type:=(others =>'0');
+    signal out_or : data_type:=(others =>'0');
+    signal out_xor : data_type:=(others =>'0');
+    signal out_not : data_type:=(others =>'0');
 
 begin
 logic_unit: entity work.logic_unit(AND_Behavioral)

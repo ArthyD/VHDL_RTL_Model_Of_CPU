@@ -12,23 +12,23 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity SLT is 
+entity SLT2 is 
 port(
-    a	:	in	std_logic;
-	b	:	in	std_logic;
-    c	:	out	std_logic
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
 );
-end SLT;
+end SLT2;
 
-architecture SLT_Behavioral of SLT is
+architecture SLT_Behavioral of SLT2 is
     signal int_a : integer;
     signal int_b : integer;
 begin
     
-    int_a <= to_integer(signed(a))  ;
-    int_b <= to_integer(signed(b))  ;
+    --int_a <= to_integer(signed(a))  ;
+    --int_b <= to_integer(signed(b))  ;
     
-    if (int_a < int_b) then
+    if (a < b) then
         c <= (others =>'1');
 
     else
@@ -42,15 +42,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity SLTU is 
+entity SLTU2 is 
 port(
-    a	:	in	std_logic;
-	b	:	in	std_logic;
-    c	:	out	std_logic
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
 );
-end SLTU;
+end SLTU2;
 
-architecture SLTU_Behavioral of SLTU is
+architecture SLTU_Behavioral of SLTU2 is
 begin
 
     if (to_integer(unsigned(to_stdlogicvector(a))) < unsigned(b)) then

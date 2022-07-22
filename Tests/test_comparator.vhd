@@ -7,20 +7,21 @@
 
 ----------------------------------------------------------------------------------
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
 
-entity test_shifter is
+entity test_comparator is
 
-end test_shifter;
+end test_comparator;
 
-architecture Behavioral of test_shifter is
-    signal a : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal b : std_logic_vector(data_width-1 downto 0):=(others =>'1');
-    signal out_SLT : std_logic_vector(data_width-1 downto 0):=(others =>'0');
-    signal out_SLTU : std_logic_vector(data_width-1 downto 0):=(others =>'0');
+architecture Behavioral of test_comparator is
+    signal a : data_type:=(others =>'0');
+    signal b : data_type:=(others =>'1');
+    signal out_SLT : data_type:=(others =>'0');
+    signal out_SLTU : data_type:=(others =>'0');
 
 begin
 comparator: entity work.comparator(SLL_Behavioral)
@@ -30,7 +31,7 @@ port map(
     c => out_SLT
 );
 
-comparator: entity work.comparator(SLTU_Behavioral)
+comparator2: entity work.comparator(SLTU_Behavioral)
 port map(
     a => a,
     b => b,

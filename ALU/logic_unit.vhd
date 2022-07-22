@@ -14,9 +14,9 @@ use work.cpu_defs_pack.all;
 
 entity and2 is 
 port(
-    a	:	in	std_logic;
-	b	:	in	std_logic;
-    c	:	out	std_logic
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
 );
 end and2;
 
@@ -32,9 +32,9 @@ use work.cpu_defs_pack.all;
 
 entity or2 is 
 port(
-    a	:	in	std_logic;
-	b	:	in	std_logic;
-    c	:	out	std_logic
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
 );
 end or2;
 
@@ -50,8 +50,8 @@ use work.cpu_defs_pack.all;
 
 entity not2 is 
 port(
-    a	:	in	std_logic;
-    b	:	out	std_logic
+    a	:	in	data_type;
+    b	:	out	data_type
 );
 end not2;
 
@@ -67,9 +67,9 @@ use work.cpu_defs_pack.all;
 
 entity xor2 is 
 port(
-    a	:	in	std_logic;
-	b	:	in	std_logic;
-    c	:	out	std_logic
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
 );
 end xor2;
 
