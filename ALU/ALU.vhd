@@ -27,7 +27,7 @@ architecture Behavioral of ALU is
     signal out_sub : data_type:=(others =>'0');   
     signal out_logic_unit : data_type:=(others =>'0');
     signal out_shifter : data_type:=(others =>'0');
-    signal out_comparator : data_type:=(others =>'0');
+--   signal out_comparator : data_type:=(others =>'0');
 
 begin
 

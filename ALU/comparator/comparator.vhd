@@ -8,56 +8,47 @@
 ----------------------------------------------------------------------------------
 
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
-entity SLT2 is 
-port(
-    a	:	in	data_type;
-	b	:	in	data_type;
-    c	:	out	data_type
+entity comparator is 
+Port (
+        a       :       in      data_type;
+        b       :       in      data_type;
+	    code	:	    in	    opcode_type;
+        s       :       out	    data_type
 );
-end SLT2;
+end comparator;
 
-architecture SLT_Behavioral of SLT2 is
-    signal int_a : integer;
-    signal int_b : integer;
-begin
-    
-    --int_a <= to_integer(signed(a))  ;
-    --int_b <= to_integer(signed(b))  ;
-    
-    if (a < b) then
-        c <= (others =>'1');
+architecture Behavioral of comparator is
+    signal out_SLT : data_type:=(others =>'0');   
+    signal out_SLTU : data_type:=(others =>'0');   
 
-    else
-        c <= (others =>'0');
-    end if;
-
-end SLT_Behavioral;
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-use work.cpu_defs_pack.all;
-
-entity SLTU2 is 
-port(
-    a	:	in	data_type;
-	b	:	in	data_type;
-    c	:	out	data_type
-);
-end SLTU2;
-
-architecture SLTU_Behavioral of SLTU2 is
 begin
 
-    if (to_integer(unsigned(to_stdlogicvector(a))) < unsigned(b)) then
-        c <= (others =>'1');
+slt2: entity work.slt2(Behavioral)
+port map(
+    a => a,
+    b => b,
+    c => out_SLT
+);
 
-    else
-        c <= (others =>'0');
-    end if;
+sltu2: entity work.sltu2(Behavioral)
+port map(
+    a => a,
+    b => b,
+    c => out_SLTU
+);    
 
-end SLTU_Behavioral;
+process_shifter : process(a) begin
+case code is
+when code_slt => s <= out_SLT;
+when code_sltu => s <= out_SLTU;
+when others => s <= (others =>'0');
+end case;
+end process;
+
+end Behavioral;
+

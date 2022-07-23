@@ -20,12 +20,13 @@ end test_ALU;
 architecture Behavioral of test_ALU is
     signal a : data_type:=(others =>'1');
     signal b : data_type:=(others =>'0');
-    b(0) := '1';
+        
     signal out_SLL : data_type:=(others =>'0');
     signal out_and : data_type:=(others =>'0');
     signal out_add : data_type:=(others =>'0');
 
 begin
+b(0) <= '1';
 
 alu_SLL: entity work.ALU(Behavioral)
 port map(

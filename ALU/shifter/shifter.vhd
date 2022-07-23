@@ -22,25 +22,37 @@ Port (
 end shifter;
 
 architecture Behavioral of shifter is
+    signal out_SLL : data_type:=(others =>'0');   
+    signal out_SRL : data_type:=(others =>'0');   
+    signal out_SRA : data_type:=(others =>'0');
+
 begin
-    if (code = code_sll) then
-        sll2: entity work.sll2(Behavioral)
-        port map(
-            a => a,
-            b => s
-        );
-    elsif (code = code_srl) then
-        srl2: entity work.srl2(Behavioral)
-        port map(
-            a => a,
-            b => s
-        );       
-    elsif (code = code_sra) then
-        sra2: entity work.sra2(Behavioral)
-        port map(
-            a => a,
-            b => s
-        );  
-    else
-        s <= (others =>'0');
+
+sll2: entity work.sll2(Behavioral)
+port map(
+    a => a,
+    b => out_SLL
+);
+
+srl2: entity work.srl2(Behavioral)
+port map(
+    a => a,
+    b => out_SRL
+);    
+
+sra2: entity work.sra2(Behavioral)
+port map(
+    a => a,
+    b => out_SRA
+);     
+
+process_shifter : process(a) begin
+case code is
+when code_sll => s <= out_SLL;
+when code_srl => s <= out_SRL;
+when code_sra => s <= out_SRA;
+when others => s <= (others =>'0');
+end case;
+end process;
+
 end Behavioral;
