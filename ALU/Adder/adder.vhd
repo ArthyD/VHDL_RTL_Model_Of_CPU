@@ -17,16 +17,16 @@ Generic (
         input_width : integer := data_width
 );
 Port (
-        a       :       in      STD_LOGIC_VECTOR(input_width-1 downto 0);
-        b       :       in      STD_LOGIC_VECTOR(input_width-1 downto 0);
+        a       :       in      data_type;
+        b       :       in      data_type;
 	neg_b	:	in	STD_LOGIC;
-        s       :       out	STD_LOGIC_VECTOR(input_width-1 downto 0)
+        s       :       out	data_type
 );
 end adder;
 
 architecture Behavioral of adder is
 
-signal a_int, b_int, s_int, c_int : std_logic_vector(input_width-1 downto 0);
+signal a_int, b_int, s_int, c_int : data_type;
 
 begin
 

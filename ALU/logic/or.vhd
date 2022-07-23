@@ -11,14 +11,16 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
-use work.adder.all;
 
-entity ALU is
-    Port (
-            operand1       :       in      data_type;
-            operand2       :       in      data_type;
-            carry          :	   in	   STD_LOGIC;
-            operation      :       in	   opcode_type;
-            result         :       out     data_type;
-    );
-end ALU;
+entity or2 is 
+port(
+    a	:	in	data_type;
+	b	:	in	data_type;
+    c	:	out	data_type
+);
+end or2;
+
+architecture Behavioral of or2 is
+begin
+    c <= a OR b;
+end Behavioral;
