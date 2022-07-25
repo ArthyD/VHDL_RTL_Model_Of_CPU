@@ -55,7 +55,7 @@ package cpu_defs_pack is
     constant code_lui : opcode_type := "0001011";
     constant code_auipc : opcode_type := "0001100";
     -- Logic instructions --
-    constant code_xor : opcode_type := "0001101;
+    constant code_xor : opcode_type := "0001101";
     constant code_or : opcode_type := "0001111";
     constant code_and : opcode_type := "0010000";
     constant code_xori : opcode_type := "0010001";
