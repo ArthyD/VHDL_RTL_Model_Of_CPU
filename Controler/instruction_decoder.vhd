@@ -18,10 +18,10 @@ entity instruction_decoder is
             instruction    :       in      data_type;
             -- Output for regsisters and ALU --
             opcode         :       out     opcode_type;
-            sel_in         :       out     std_logiv_vector(1 downto 0);
-            sel_out_a      :       out     std_logiv_vector(1 downto 0);
-            sel_out_b      :       out     std_logiv_vector(1 downto 0);
-            sel_out_c      :       out     std_logiv_vector(1 downto 0);
+            sel_in         :       out     bit_vector(1 downto 0);
+            sel_out_a      :       out     bit_vector(1 downto 0);
+            sel_out_b      :       out     bit_vector(1 downto 0);
+            sel_out_c      :       out     bit_vector(1 downto 0);
             -- Output for FSM input --
             cmd_calc       :       out     std_logic := '0';
             calc_on_PC     :       out     std_logic := '0';
@@ -31,7 +31,7 @@ entity instruction_decoder is
             mem_hword      :       out     std_logic := '0';
             mem_byte       :       out     std_logic := '0';
             -- Imm output --
-            imm            :       out     std_logic_vector(11 downto 0);     
+            imm            :       out     bit_vector(11 downto 0)    
     );
 end instruction_decoder;
 
@@ -47,17 +47,18 @@ begin
     mem_word    <='0';
     mem_hword   <='0';
     mem_byte    <='0';
-    case opcode is
+    decoding_process : process(opcode) begin
+    case(opcode) is
     -- Load Instruction --
         when code_lb|code_lbu|code_lh|code_lhu|code_lw => rs1 <= instruction(19 downto 15);
             rd <= instruction(11 downto 7);
             imm <= instruction(31 downto 20);
             op_r_mem <= '1';
-            if opcode = code_lb or code_lbu then 
+            if opcode = code_lb or opcode = code_lbu then 
                 mem_byte <= '1';
-            else if opcode = code_lh or code_lhu then
+            elsif opcode = code_lh or opcode = code_lhu then
                 mem_hword <= '1';
-            else if opcode = code_lw then
+            elsif opcode = code_lw then
                 mem_word <= '1';
             end if;
     -- Store Instruction --
@@ -67,9 +68,9 @@ begin
             op_w_mem <= '1';
             if opcode = code_sb then 
                 mem_byte <= '1';
-            else if opcode = code_sh then
+            elsif opcode = code_sh then
                 mem_hword <= '1';
-            else if opcode = code_w then
+            elsif opcode = code_w then
                 mem_word <= '1';
             end if;
     -- Shift Instruction --
@@ -104,4 +105,5 @@ begin
         when code_lui|code_auipc => rd <= instruction(11 downto 7);
             calc_on_PC <= '1';
     end case;
+   end process;
 end Behavioral;

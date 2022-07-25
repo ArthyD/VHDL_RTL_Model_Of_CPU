@@ -40,7 +40,7 @@ entity FSM is
         mem_access_mux  :       out    std_logic_vector(1 downto 0) := "00";
         mux_instr       :       out    std_logic := '0';
         mux_PC          :       out    std_logic := '0';
-        mem_access_type :       out    std_logic_vector(1 downto 0) := "00";
+        mem_access_type :       out    std_logic_vector(1 downto 0) := "00"
     );
 end FSM;
 
@@ -51,16 +51,11 @@ signal next_state : state_type := FETCH_STATE;
 begin
     process_next_state: process(current_state,cmd_calc,calc_on_PC,op_w_mem,op_r_mem,mem_word,mem_hword,mem_byte) begin
         case current_state is
-            when FETCH_STATE =>
-                if cmd_calc = '1' or calc_on_PC = '1' then
-                    next_state <= EXECUTION_STATE;
-                elsif op_w_mem = '1' or op_r_mem = '1' then
-                    next_state <= MEMORY_SATE;
-                end if;
+            when FETCH_STATE => next_state <= EXECUTION_STATE;
             when MEMORY_STATE => next_state <= FETCH_STATE;
             when EXECUTION_STATE => 
                 if op_w_mem = '1' or op_r_mem = '1' then
-                    next_state <= MEMORY_SATE;
+                    next_state <= MEMORY_STATE;
                 else
                     next_state <= FETCH_STATE;
                 end if;
@@ -78,7 +73,7 @@ begin
     end process; 
 
     -- Moore architecture --
-    process_output: process(current_sate) begin
+    process_output: process(current_state) begin
         en_calc         <= '0';
         en_registers    <= '0';
         en_PC           <= '0';
@@ -98,36 +93,37 @@ begin
                 if access_PC = '1' then
                     en_PC <= '1';
                     mem_access_mux <= "01";
-                else if access_addr = '1' then
+                elsif access_addr = '1' then
                     en_addr <= '1';
                     mem_access_mux <= "10";
-                else if access_reg = '1' then
-                    en_reg <= '1';
+                elsif access_reg = '1' then
+                    en_registers <= '1';
                     mem_access_mux <= "11";    
                 end if ;
             when EXECUTION_STATE =>
                 if cmd_calc ='1' then
                     en_calc <= '1';
-                    en_reg <= '1';
-                else if calc_on_PC then
+                    en_registers <= '1';
+                elsif calc_on_PC = '1' then
                     en_PC <= '1';
                     en_calc <= '1';
-                    en_reg <= '1';
+                    en_registers <= '1';
                     mux_PC <= '1'; -- Result come from register
                 end if;
             when MEMORY_STATE =>
                 if mem_word = '1' then
                     mem_access_type <= "11";
-                else if mem_hword = '1' then
+                elsif mem_hword = '1' then
                     mem_access_type <= "10";
-                else if mem_byte = '1' then
-                    mem_access_type <= "01"
+                elsif mem_byte = '1' then
+                    mem_access_type <= "01";
                 end if;
                 if op_w_mem = '1' then
                     en_w_mem <= '1';
-                else if op_r_mem = '1' then
+                elsif op_r_mem = '1' then
                     en_r_mem <= '1';
                 end if;
+            end case;
     end process;
 
 end Behavioral;

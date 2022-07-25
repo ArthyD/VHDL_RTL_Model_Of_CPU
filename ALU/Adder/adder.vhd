@@ -13,13 +13,10 @@ use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
 entity adder is
-Generic (
-        input_width : integer := data_width
-);
 Port (
         a       :       in      data_type;
         b       :       in      data_type;
-	neg_b	:	in	STD_LOGIC;
+	neg_b	    :	in	bit;
         s       :       out	data_type
 );
 end adder;
@@ -30,7 +27,7 @@ signal a_int, b_int, s_int, c_int : data_type;
 
 begin
 
-negate_b: process(all)
+negate_b: process(a,b,neg_b)
 begin
 	if neg_b = '1' then
 		b_int <= not(b);
@@ -50,7 +47,7 @@ port map (
         cout    =>      c_int(1)
 );
 
-g_full_adders: for i in 1 to input_width - 2 generate
+g_full_adders: for i in 1 to data_width - 2 generate
 fa_i: entity work.full_adder(Behavioral)
 port map (
 	a	=>	a_int(i),
@@ -63,10 +60,10 @@ end generate g_full_adders;
 
 fa_msb: entity work.full_adder(Behavioral)
 port map (
-        a       =>      a_int(input_width - 1),
-        b       =>      b_int(input_width - 1),
-        cin     =>      c_int(input_width - 1),
-        s       =>      s_int(input_width - 1),
+        a       =>      a_int(data_width - 1),
+        b       =>      b_int(data_width - 1),
+        cin     =>      c_int(data_width - 1),
+        s       =>      s_int(data_width - 1),
         cout    =>      c_int(0)
 );
 

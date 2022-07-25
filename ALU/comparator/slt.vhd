@@ -24,7 +24,7 @@ architecture Behavioral of SLT2 is
     signal int_a : integer;
     signal int_b : integer;
 begin
-    
+    process_slt : process(a,b) begin
     --int_a <= to_integer(signed(a))  ;
     --int_b <= to_integer(signed(b))  ;
     
@@ -34,5 +34,5 @@ begin
     else
         c <= (others =>'0');
     end if;
-
+    end process;
 end Behavioral;

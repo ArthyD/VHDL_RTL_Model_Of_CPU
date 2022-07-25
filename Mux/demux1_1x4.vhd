@@ -1,35 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 07/21/2022 10:08:30 PM
--- Design Name: 
--- Module Name: demux1_1x4 - RTL
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- TUM VHDL Assignment
+-- Arthur Docquois, Maelys Chevrier, Timothée Carel, Roman Canals
+--
+-- Create Date: 19/07/2022
+-- Project Name: CPU RTL model
+
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
 
 
 entity demux1_1x4 is

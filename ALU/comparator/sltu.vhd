@@ -22,12 +22,12 @@ end SLTU2;
 
 architecture Behavioral of SLTU2 is
 begin
-
+    process_sltu: process(a,b) begin
     if (to_integer(unsigned(to_stdlogicvector(a))) < unsigned(b)) then
         c <= (others =>'1');
 
     else
         c <= (others =>'0');
     end if;
-
+    end process;
 end Behavioral;

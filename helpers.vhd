@@ -1,3 +1,16 @@
+----------------------------------------------------------------------------------
+-- TUM VHDL Assignment
+-- Arthur Docquois, Maelys Chevrier, Timothée Carel, Roman Canals
+--
+-- Create Date: 19/07/2022
+-- Project Name: CPU RTL model
+
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.cpu_defs_pack.all;
+
 entity register_file is
     port(
         data_in: in data_type;
@@ -11,7 +24,7 @@ end register_file;
 
 architecture RTL of register_file is
 
-...
+
 
 function to_hstring(slv: data_type) return string is
     constant hexlen : integer := (slv'length+3)/4;
@@ -49,7 +62,7 @@ signal register_output_a, register_output_b, register_output_c, register_output_
 signal enable_register_a, enable_register_b, enable_register_c, enable_register_d: bit;
 
 begin
-	...
+
 
 	process(enable_register_a, register_output_a) begin
 	   report "the enable value from register a is  " & bit'image(enable_register_a);

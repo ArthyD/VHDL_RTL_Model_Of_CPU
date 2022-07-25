@@ -8,28 +8,13 @@
 ----------------------------------------------------------------------------------
 
 library IEEE;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
-entity full_adder is
-port (
-	a	:	in	bit;
-	b	:	in	bit;
-	cin	:	in	bit;
-	s	:	out	bit;
-	cout	:	out	bit
-);
-end entity;
-
-architecture Behavioral of full_adder is
-signal g, p : bit;
-begin
-
-p <= a xor b;
-g <= a and b;
-
-s <= p xor cin;
-
-cout <= g or (p and cin);
+entity test_ID is
+    --  Port ( );
+end test_ID;
+    
+architecture Behavioral of test_ID is
 
 end Behavioral;
