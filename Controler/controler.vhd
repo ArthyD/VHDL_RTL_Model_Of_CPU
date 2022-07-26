@@ -26,6 +26,9 @@ entity controler is
         sel_out_c      :       out     bit_vector(1 downto 0);
         -- Imm output --
         imm            :       out     bit_vector(11 downto 0);
+        -- Calculation output --
+        cmd_calc       :       buffer  std_logic;
+        calc_on_PC     :       buffer  std_logic;
         -- Output of FSM --
         en_calc         :       out    std_logic := '0';
         en_registers    :       out    std_logic := '0';
@@ -42,8 +45,6 @@ entity controler is
 end controler;
 
 architecture RTL of controler is
-    signal cmd_calc : std_logic;
-    signal calc_on_PC : std_logic;
     signal op_w_mem : std_logic;
     signal op_r_mem : std_logic;
     signal mem_word : std_logic;
