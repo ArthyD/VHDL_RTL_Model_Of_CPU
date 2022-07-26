@@ -106,5 +106,8 @@ begin
             when code_lui|code_auipc => rd <= instruction(11 downto 7);
                 calc_on_PC <= '1';
         end case;
+        sel_in <= rd(1 downto 0);
+        sel_out_a <= rs1(1 downto 0);
+        sel_out_b <= rs2(1 downto 0);
    end process;
 end Behavioral;
