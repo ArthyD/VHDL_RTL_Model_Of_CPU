@@ -1,19 +1,40 @@
-General goal
-
 To adapt from previous work
--> Set of instructions to RISC-V
--> Switch to 32 bits
+-> Set of instructions to RISC-V done
+-> Switch to 32 bits done
 
 To do RTL Model
 1st week :
--> Logic gates : AND, NOT, OR, XOR, ... : presentation 1 Maelys
--> Multiplexer : presentation 2 Tim
--> Adder : presentation 3 (need logic gates) Arthur
--> Registers, flip-flop : presentation 5 Roman
+-> Logic gates : AND, NOT, OR, XOR, ... done
+-> Multiplexer done
+-> Adder done
+-> Registers, flip-flop done
+
+2nd week :
+-> ALU done
+-> register file done 
+-> FSM and ID done
+-> tests done
 
 Following :
--> Datapath : presentation 7 (need quite everything)
--> Controller and FSM : presentation 9 (already done in another course by Arthur)
--> Model of processor : presentation 10
+-> Datapath (Roman)
+-> Full controler done need to be tested
+-> Connect everything : memory + controler + Datapath
+-> tests (fill memory and see behavior of CPU)
 
-Every part must come with its tests 
+What's missing ? 
+-> PC controler in order to use branch instruction with conditions : 
+    might need adaptation in FSM, need to use compare block to enable or not 
+    the output of PC done 
+-> Address register done
+-> memory interface done
+-> Increment PC block 
+-> Instruction register done
+
+Remarks 
+-> might need a multiplexer controled by calc_on_PC and cmd_calc coming from fsm in datapath
+    to see which one is the data_in
+    if calc_on_PC : data_in = PC
+    if cmd_cal : data_in = imm 
+    they are put in register during fetch and then the operation is performed during execution **done in controler
+-> PC_controler needs two regsiters out from resgister_file as input to do the checks on it 
+    and the opcode done
