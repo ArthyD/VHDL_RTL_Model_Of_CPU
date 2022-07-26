@@ -40,8 +40,7 @@ entity full_controler is
         en_registers   :       out std_logic;
         -- Outputs for ALU --
         opcode         :       out opcode_type; 
-        en_calc        :       out std_logic;
-        pc             :       buffer addr_type       
+        en_calc        :       out std_logic    
     );
 end full_controler;
 
@@ -65,6 +64,8 @@ architecture RTL of full_controler is
     signal address : addr_type;
     -- signals out of PC increment --
     signal pc_incr : addr_type;
+    -- signals out of PC controler --
+    signal pc : addr_type;
 
     begin
     -- Instruction controler --
