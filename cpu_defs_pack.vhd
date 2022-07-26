@@ -12,7 +12,6 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 package cpu_defs_pack is
-
     -- DEFINITION OF TYPES --
     constant bus_width : natural := 32;
     constant data_width : natural := bus_width;

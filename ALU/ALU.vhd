@@ -65,14 +65,13 @@ port map(
 );
 
 
-process_ALU : process(operand1) begin
-case operation is
-when code_add => result <= out_add;
-when code_sub => result <= out_sub;
-when code_and | code_or | code_xor => result <= out_logic_unit;
-when code_sra | code_sll | code_srl => result <= out_shifter;
-when others => null;
-end case;
-end process;
-
+    process_ALU : process(operand1) begin
+    case operation is
+        when code_add => result <= out_add;
+        when code_sub => result <= out_sub;
+        when code_and | code_or | code_xor => result <= out_logic_unit;
+        when code_sra | code_sll | code_srl => result <= out_shifter;
+        when others => null;
+        end case;
+    end process;
 end Behavioral;

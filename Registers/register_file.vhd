@@ -25,12 +25,13 @@ use work.cpu_defs_pack.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
+
 
 entity register_file is
     port(
@@ -87,17 +88,20 @@ begin
 	muxa: mux32_4x1 
 	port map(
 	   select_input => sel_out_a,
-	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d
+	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d,
+	   d_out => data_out_a
 	);
     muxb: mux32_4x1 
     port map(
 	   select_input => sel_out_b,
-	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d
+	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d,
+	   d_out => data_out_b
 	);
     muxc: mux32_4x1
     port map(
 	   select_input => sel_out_c,
-	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d
+	   d_in_a => register_output_a, d_in_b => register_output_b, d_in_c => register_output_c, d_in_d => register_output_d,
+	   d_out => data_out_c
 	);
 end RTL;
 

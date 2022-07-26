@@ -68,20 +68,69 @@ begin
         enable_tb <= '0';
         data_in_tb <= (others => '1');
         
+        -- test that everything was resetted properly
         wait for 1 ns;
         assert (data_out_a_tb = (data_out_a_tb'range => '0')) report "data_out_a from previous iteration is not deleted properly." severity warning;
         assert (data_out_b_tb = (data_out_b_tb'range => '0')) report "data_out_b from previous iteration is not deleted properly." severity warning;
         assert (data_out_c_tb = (data_out_c_tb'range => '0')) report "data_out_c from previous iteration is not deleted properly." severity warning;
+
+        enable_tb <= '1';
+
+        -- test that sel_in uses correct register by selecting setting sel_out_a to respective value of sel_in
+        -- and asserting that data_out_a resembles register sel_in.
+        sel_in_tb <= "00";
+        wait for 1 ns; -- we have to wait here because the demux needs to update first before we can start the actual clock cycle..
+        sel_out_a_tb <= "00";
+        data_in_tb <= x"AAAA_AAAA";
+        clk_tb <= '1';
+        wait for 1 ns;
+        assert (data_out_a_tb = data_in_tb) report "writing to register_a has failed" severity error;
+        assert (data_out_b_tb = x"AAAA_AAAA") report "passively writing to output b has failed" severity error;
+        assert (data_out_c_tb = x"AAAA_AAAA") report "passively writing to output c has failed" severity error;
         
-        -- test that sel_in == "00" uses register_a by selecting sel_out_a, sel_out_b, and sel_out_c one after another
-        -- and asserting that only sel_out_a is non-zero.
+        clk_tb <= '0';
+        wait for 1 ns;
+        sel_in_tb <= "01";
+        wait for 1 ns;
+        sel_out_a_tb <= "01";
+        data_in_tb <= x"BBBB_BBBB";
+        clk_tb <= '1';
+        wait for 1 ns;
+        assert (data_out_a_tb = data_in_tb) report "writing to register_b has failed" severity error;
+        assert (data_out_b_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output b has failed" severity error;
+        assert (data_out_c_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output c has failed" severity error;
+
+        clk_tb <= '0';
+        wait for 1 ns;
+        sel_in_tb <= "10";
+        wait for 1 ns;
+        sel_out_a_tb <= "10";
+        data_in_tb <= x"CCCC_CCCC";
+        clk_tb <= '1';
+        wait for 1 ns;
+        assert (data_out_a_tb = data_in_tb) report "writing to register_c has failed" severity error;
+        assert (data_out_b_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output b has failed" severity error;
+        assert (data_out_c_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output c has failed" severity error;
         
-        
-        -- test that sel_out_a == "00" uses the output from register_a by writing different inputs to register_a, register_b,
-        -- register_c, and register_d and validating subsequently that sel_out_a == "00" leads to data_out_a receiving the
-        -- value from register_a.
+        clk_tb <= '0';
+        wait for 1 ns;
+        sel_in_tb <= "11";
+        wait for 1 ns;
+        sel_out_a_tb <= "11";
+        data_in_tb <= x"DDDD_DDDD";
+        clk_tb <= '1';
+        wait for 1 ns;
+        assert (data_out_a_tb = data_in_tb) report "writing to register_d has failed" severity error;
+        assert (data_out_b_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output b has failed" severity error;
+        assert (data_out_c_tb = x"AAAA_AAAA") report "erroneously updated register a or passively writing to output c has failed" severity error;
         
         -- reset for next round
+        clk_tb <= '0';
+        wait for 1 ns;
+        rst_tb <= '1';
+        enable_tb <= '1';
+        clk_tb <= '1';
+        wait for 1 ns;
     end process;
 
 end Behavioral;

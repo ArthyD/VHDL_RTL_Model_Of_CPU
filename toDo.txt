@@ -28,3 +28,12 @@ What's missing ?
 -> Instruction register
 -> Address register
 -> Increment PC block 
+
+Remarks 
+-> might need a multiplexer controled by calc_on_PC and cmd_calc coming from fsm in datapath
+    to see which one is the data_in
+    if calc_on_PC : data_in = PC
+    if cmd_cal : data_in = imm 
+    they are put in register during fetch and then the operation is performed during execution
+-> PC_controler needs two regsiters out from resgister_file as input to do the checks on it 
+    and the opcode
