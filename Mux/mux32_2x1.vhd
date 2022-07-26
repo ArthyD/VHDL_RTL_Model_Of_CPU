@@ -29,7 +29,7 @@ begin
             d_out <= d_in_a;
         else
             d_out <= d_in_b;
-        end if:
+        end if;
     end process;
     
 end RTL;

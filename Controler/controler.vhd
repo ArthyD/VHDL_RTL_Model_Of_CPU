@@ -37,7 +37,7 @@ entity controler is
         mem_access_mux  :       out    std_logic_vector(1 downto 0) := "00";
         mux_instr       :       out    std_logic := '0';
         mux_PC          :       out    std_logic := '0';
-        mem_access_type :       out    std_logic_vector(1 downto 0) := "00";
+        mem_access_type :       out    std_logic_vector(1 downto 0) := "00"
     );
 end controler;
 
@@ -87,7 +87,7 @@ architecture RTL of controler is
         access_PC => access_PC,
         access_addr => access_addr,
         access_reg => access_reg,
-        clk => clk_s,
+        clk => clk,
         rst => rst,
         -- Output of FSM --
         en_calc => en_calc,

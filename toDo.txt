@@ -23,11 +23,12 @@ Following :
 
 What's missing ? 
 -> PC controler in order to use branch instruction with conditions : 
-    might need adaptation in FSM, need to use compare block to enable or not
+    might need adaptation in FSM, need to use compare block to enable or not done
     the output of PC
--> Instruction register
--> Address register
+-> Address register done
+-> memory interface done
 -> Increment PC block 
+-> Instruction register
 
 Remarks 
 -> might need a multiplexer controled by calc_on_PC and cmd_calc coming from fsm in datapath
