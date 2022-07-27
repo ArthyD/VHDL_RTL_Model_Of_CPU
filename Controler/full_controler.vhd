@@ -74,7 +74,7 @@ architecture RTL of full_controler is
         memory_instruction => memory_data,
         input_instruction => input_data,
         enable => en_instr,
-        instruction => data_type;
+        instruction => instruction
     );
     -- Datapath input controler --
     DatapathInputC: entity work.datapath_input_controler(RTL)
@@ -87,14 +87,14 @@ architecture RTL of full_controler is
     );
     -- Address controler --
     AddressC: entity work.address_controler(RTL)
-    Port(
+    port map(
         register_content => reg_data_a,
         enable => en_addr,
         address => address
     );
     -- PC controler --
     PCC: entity work.PC_controler(RTL)
-    Port (
+    port map(
         reg1_content => reg_data_a,
         reg2_content => reg_data_b,
         opcode => opcode,
@@ -104,13 +104,13 @@ architecture RTL of full_controler is
     );
     -- PC increment --
     PCincrement: entity work.increment_PC(RTL)
-    Port(
+    port map(
         pc => pc,
         pc_incr => pc_incr
     );
     -- Memory interface --
     MemoryInterface: entity work.memory_interface(RTL)
-    Port(
+    port map(
        pc => pc,
        addr => address,
        reg_content => reg_data_a,
@@ -129,7 +129,7 @@ architecture RTL of full_controler is
     );
     -- Controler -- 
     Controler: entity work.controler(RTL)
-    Port(
+    port map(
         instruction => instruction,
         clk => clk,
         rst => rst,

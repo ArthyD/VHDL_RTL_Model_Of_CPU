@@ -23,7 +23,7 @@ end address_controler;
 
 architecture RTL of address_controler is 
 begin
-    process_addr_controler : process begin
+    process_addr_controler : process(enable) begin
         if enable = '1' then
             address <= register_content(15 downto 0);
         end if;

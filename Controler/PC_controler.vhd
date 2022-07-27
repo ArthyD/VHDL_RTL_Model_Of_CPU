@@ -36,7 +36,7 @@ architecture RTL of PC_controler is
             neg_b	=>	'0',
             s	=>	adder_output
         );
-    pc_controler_process : process begin
+    pc_controler_process : process(opcode) begin
         case opcode is
             -- Branch instructions -- 
             when code_beq => 

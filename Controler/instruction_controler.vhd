@@ -24,7 +24,7 @@ end instruction_controler;
 
 architecture RTL of instruction_controler is 
 begin
-    process_instr_controler : process begin
+    process_instr_controler : process(enable) begin
         if enable = '1' then
             instruction <= memory_instruction;
         end if;

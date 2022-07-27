@@ -19,7 +19,7 @@ entity datapath_input_controler is
         calc_on_PC : in std_logic;
         pc : in addr_type;
         imm : in bit_vector(11 downto 0);
-        output : out data_type;
+        output : out data_type
     );
 end datapath_input_controler;
 

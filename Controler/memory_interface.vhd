@@ -39,7 +39,7 @@ end memory_interface;
 architecture RTL of memory_interface is 
     signal tmp_address : addr_type;
 begin
-    process_memory_interface : process begin
+    process_memory_interface : process(all) begin
         -- Choose which component gives the address --
         case mem_access_mux is
             when "10" => tmp_address <= addr;
