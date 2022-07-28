@@ -36,8 +36,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity register_file is
     port(
         data_in: in data_type;
-        clk, rst: in bit;
-        enable: in bit;
+        clk, rst: in std_logic;
+        enable: in std_logic;
         sel_in: in bit_vector(1 downto 0);
         sel_out_a, sel_out_b, sel_out_c: in bit_vector(1 downto 0);
         data_out_a, data_out_b, data_out_c: out data_type

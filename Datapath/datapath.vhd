@@ -29,11 +29,11 @@ entity datapath is
         -- Output --
         data_out_a     :       buffer data_type;
         data_out_b     :       buffer data_type;
-        data_out_c     :       buffer data_type;  
+        data_out_c     :       buffer data_type 
     );
 end datapath;
 
-architecture RTL of full_controler is
+architecture RTL of datapath is
     signal entry_of_registers : data_type;
     signal output_of_ALU : data_type;
     begin
@@ -59,7 +59,7 @@ architecture RTL of full_controler is
             data_out_a => data_out_a, 
             data_out_b => data_out_b, 
             data_out_c => data_out_c
-        )
+        );
 
         process_datapath : process(clk) begin
             if en_calc = '1' then

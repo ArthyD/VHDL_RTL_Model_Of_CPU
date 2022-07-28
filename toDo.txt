@@ -17,9 +17,9 @@ To do RTL Model
 -> tests done
 
 Following :
--> Datapath (Roman)
--> Full controler done need to be tested
--> Connect everything : memory + controler + Datapath
+-> Datapath done
+-> Full controler done
+-> Connect everything : memory + controler + Datapath done
 -> tests (fill memory and see behavior of CPU)
 
 What's missing ? 

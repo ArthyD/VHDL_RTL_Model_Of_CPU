@@ -15,7 +15,7 @@ use work.cpu_defs_pack.all;
 entity CPU is
     Port(
         clk            :       in std_logic;
-        rst            :       in std_logic;
+        rst            :       in std_logic
     );
 end CPU;
 
@@ -35,7 +35,7 @@ architecture RTL of CPU is
     signal data_in : data_type;
     signal en_registers : std_logic;
     signal opcode : opcode_type; 
-    signal en_calc : std_logic  
+    signal en_calc : std_logic;
     -- Signals of memory --
     signal w_rdy : std_logic;
     signal r_rdy : std_logic;
