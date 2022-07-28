@@ -11,7 +11,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
-use work.adder.all;
 
 entity and2 is 
 port(

@@ -27,8 +27,6 @@ architecture Behavioral of ALU is
     signal out_sub : data_type:=(others =>'0');   
     signal out_logic_unit : data_type:=(others =>'0');
     signal out_shifter : data_type:=(others =>'0');
---   signal out_comparator : data_type:=(others =>'0');
-
 begin
 
 
@@ -65,7 +63,7 @@ port map(
 );
 
 
-    process_ALU : process(operand1) begin
+    process_ALU : process(operand1,operand2,operation) begin
     case operation is
         when code_add => result <= out_add;
         when code_sub => result <= out_sub;

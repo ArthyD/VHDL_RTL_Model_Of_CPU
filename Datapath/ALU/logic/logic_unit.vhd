@@ -49,13 +49,13 @@ port map(
     c => out_xor
 ); 
 
-process_shifter : process(a) begin
-case code is
-when code_and => s <= out_and;
-when code_or => s <= out_or;
-when code_xor => s <= out_xor;
-when others => s <= (others =>'0');
-end case;
+process_shifter : process(a,b,code) begin
+    case code is
+        when code_and => s <= out_and;
+        when code_or => s <= out_or;
+        when code_xor => s <= out_xor;
+        when others => s <= (others =>'0');
+    end case;
 end process;
         
 end Behavioral;

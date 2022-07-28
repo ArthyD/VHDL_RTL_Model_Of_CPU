@@ -46,7 +46,7 @@ port map(
     b => out_SRA
 );     
 
-process_shifter : process(a) begin
+process_shifter : process(a, code) begin
 case code is
 when code_sll => s <= out_SLL;
 when code_srl => s <= out_SRL;

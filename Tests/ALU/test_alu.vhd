@@ -18,39 +18,29 @@ entity test_ALU is
 end test_ALU;
 
 architecture Behavioral of test_ALU is
-    signal a : data_type:=(others =>'1');
-    signal b : data_type:=(others =>'0');
-        
-    signal out_SLL : data_type:=(others =>'0');
-    signal out_and : data_type:=(others =>'0');
-    signal out_add : data_type:=(others =>'0');
+    constant period: time := 20ns;
+    signal a : data_type:="11111111111111110000000000000000";
+    signal b : data_type:="00000000000000001111111111111111";
+    signal out_signal : data_type;
+    signal code : opcode_type;
 
 begin
-b(0) <= '1';
+    alu: entity work.ALU(Behavioral)
+    port map(
+        operand1 => a,
+        operand2 => b,
+        operation => code,
+        result => out_signal
+    );
 
-alu_SLL: entity work.ALU(Behavioral)
-port map(
-    operand1 => a,
-    operand2 => b,
-    operation => code_sll,
-    result => out_SLL
-);
 
-alu_and: entity work.ALU(Behavioral)
-port map(
-    operand1 => a,
-    operand2 => b,
-    operation => code_and,
-    result => out_and
-);
-
-ALU_add: entity work.ALU(Behavioral)
-port map(
-    operand1 => a,
-    operand2 => b,
-    operation => code_add,
-    result => out_add
-);
-
+    process_test:process begin
+            code <= code_sll;
+            wait for 20*period;
+            code <= code_or;
+            wait for 20*period;
+            code <= code_add;
+            wait for 20*period;
+    end process;
 
 end Behavioral;

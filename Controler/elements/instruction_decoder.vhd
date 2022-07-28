@@ -37,11 +37,11 @@ end instruction_decoder;
 
 architecture Behavioral of instruction_decoder is
 signal rs1, rd, rs2 : reg_addr_type;
-
+signal opcode_tmp : opcode_type ;
 begin
-    opcode <= instruction(6 downto 0);
-    
-    decoding_process : process(opcode) begin
+    opcode_tmp <= instruction(6 downto 0);
+    opcode <= opcode_tmp;
+    decoding_process : process(instruction) begin
         cmd_calc    <='0';
         calc_on_PC  <='0';
         op_w_mem    <='0';
@@ -49,17 +49,17 @@ begin
         mem_word    <='0';
         mem_hword   <='0';
         mem_byte    <='0';
-        case(opcode) is
+        case(opcode_tmp) is
         -- Load Instruction --
             when code_lb|code_lbu|code_lh|code_lhu|code_lw => rs1 <= instruction(19 downto 15);
                 rd <= instruction(11 downto 7);
                 imm <= instruction(31 downto 20);
                 op_r_mem <= '1';
-                if opcode = code_lb or opcode = code_lbu then 
+                if opcode_tmp = code_lb or opcode_tmp = code_lbu then 
                     mem_byte <= '1';
-                elsif opcode = code_lh or opcode = code_lhu then
+                elsif opcode_tmp = code_lh or opcode_tmp = code_lhu then
                     mem_hword <= '1';
-                elsif opcode = code_lw then
+                elsif opcode_tmp = code_lw then
                     mem_word <= '1';
                 end if;
         -- Store Instruction --
@@ -67,11 +67,11 @@ begin
                 rs2 <= instruction(24 downto 20);
                 imm <= instruction(31 downto 25) & instruction(11 downto 7);
                 op_w_mem <= '1';
-                if opcode = code_sb then 
+                if opcode_tmp = code_sb then 
                     mem_byte <= '1';
-                elsif opcode = code_sh then
+                elsif opcode_tmp = code_sh then
                     mem_hword <= '1';
-                elsif opcode = code_w then
+                elsif opcode_tmp = code_w then
                     mem_word <= '1';
                 end if;
         -- Shift Instruction --
@@ -105,6 +105,7 @@ begin
         -- Special arithmetic move instruction --
             when code_lui|code_auipc => rd <= instruction(11 downto 7);
                 calc_on_PC <= '1';
+            when others => null;
         end case;
         sel_in <= rd(1 downto 0);
         sel_out_a <= rs1(1 downto 0);

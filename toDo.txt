@@ -57,9 +57,9 @@ Remarks
 
 ** Datapath **
 -> adder done
--> shifter
--> logic unit
--> ALU
+-> shifter done
+-> logic unit done 
+-> ALU done
 -> flip-flop done
 -> Registers done
 -> register_file done

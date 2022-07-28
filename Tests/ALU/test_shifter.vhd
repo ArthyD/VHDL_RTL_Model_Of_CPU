@@ -18,33 +18,26 @@ entity test_shifter is
 end test_shifter;
 
 architecture Behavioral of test_shifter is
-    signal a : data_type:=(others =>'1');
-    signal out_SLL : data_type:=(others =>'0');
-    signal out_SRL : data_type:=(others =>'0');
-    signal out_SRA : data_type:=(others =>'0');
+    constant period: time := 20ns;
+    signal a : data_type:="11111111111111110000000000000000";
+    signal out_signal : data_type:=(others =>'0');  
+    signal code : opcode_type;
 
 begin
 
-shifterSLL: entity work.shifter(Behavioral)
+shifter: entity work.shifter(Behavioral)
 port map(
     a => a,
-    code => code_sll,
-    s => out_SLL
+    code => code,
+    s => out_signal
 );
 
-shifterSRL: entity work.shifter(Behavioral)
-port map(
-    a => a,
-    code => code_srl,
-    s => out_SRL
-);
-
-shifterSRA: entity work.shifter(Behavioral)
-port map(
-    a => a,
-    code => code_sra,
-    s => out_SRA
-);
-
+    process_test:process begin
+        code <= code_sll;
+        wait for 10*period;
+        code <= code_srl;
+        wait for 10*period;
+        code <= code_sra;
+    end process;
 end Behavioral;
 
