@@ -5,6 +5,7 @@ To adapt from previous work
 To do RTL Model
 1st week :
 -> Logic gates : AND, NOT, OR, XOR, ... done
+-> Shifters done
 -> Multiplexer done
 -> Adder done
 -> Registers, flip-flop done
@@ -27,7 +28,7 @@ What's missing ?
     the output of PC done 
 -> Address register done
 -> memory interface done
--> Increment PC block 
+-> Increment PC block done
 -> Instruction register done
 
 Remarks 
@@ -38,3 +39,34 @@ Remarks
     they are put in register during fetch and then the operation is performed during execution **done in controler
 -> PC_controler needs two regsiters out from resgister_file as input to do the checks on it 
     and the opcode done
+
+
+--- Test Part ---
+
+** Controler **
+-> FSM done
+-> ID done
+-> FSM + ID done
+-> PC controler done
+-> Memory interface
+-> address_controler
+-> datapath_input_controler
+-> increment_PC
+-> instruction_controler
+-> Full controler
+
+** Datapath **
+-> adder done
+-> shifter
+-> logic unit
+-> ALU
+-> flip-flop done
+-> Registers done
+-> register_file done
+-> datapath
+
+** Memory **
+-> Memory
+
+** CPU **
+-> full system
