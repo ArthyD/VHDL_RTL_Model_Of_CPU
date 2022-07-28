@@ -13,21 +13,23 @@ use IEEE.NUMERIC_STD.ALL;
 use work.cpu_defs_pack.all;
 
 entity memory is
-    Port ( w_addr       : in    addr_type;
-           w_en         : in    STD_LOGIC;
-           w_rdy        : out   STD_LOGIC;
-           w_data       : in    data_type;
-           w_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
-           r_rdy        : out   STD_LOGIC;
-           r_data       : out   data_type;
-           r_addr       : in    addr_type;
-           r_en         : in    STD_LOGIC;
-           r_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
-           CLK          : in    STD_LOGIC;
-           RST          : in    STD_LOGIC);
+    Port ( 
+        w_addr       : in    addr_type;
+        w_en         : in    STD_LOGIC;
+        w_rdy        : out   STD_LOGIC;
+        w_data       : in    data_type;
+        w_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
+        r_rdy        : out   STD_LOGIC;
+        r_data       : out   data_type;
+        r_addr       : in    addr_type;
+        r_en         : in    STD_LOGIC;
+        r_mode       : in    STD_LOGIC_VECTOR (1 downto 0);
+        CLK          : in    STD_LOGIC;
+        RST          : in    STD_LOGIC
+    );
 end memory;
 
-architecture Behavioral of memory is
+architecture RTL of memory is
 
 begin
 
@@ -103,4 +105,4 @@ end process;
                 
     
              
-end Behavioral;
+end RTL;
