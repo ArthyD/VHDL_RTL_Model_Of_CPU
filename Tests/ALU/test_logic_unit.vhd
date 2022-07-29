@@ -41,5 +41,6 @@ begin
             code <= code_or;
             wait for 10*period;
             code <= code_xor;
+            wait for 10*period;
         end process;
 end Behavioral;

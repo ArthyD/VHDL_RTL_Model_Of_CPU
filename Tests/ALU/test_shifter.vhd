@@ -38,6 +38,7 @@ port map(
         code <= code_srl;
         wait for 10*period;
         code <= code_sra;
+        wait for 10*period;
     end process;
 end Behavioral;
 
