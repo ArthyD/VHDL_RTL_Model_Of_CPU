@@ -31,7 +31,7 @@ begin
     port map(
         a => a,
         b => b,
-        code => code_and,
+        code => code,
         s => out_signal
     );
     
