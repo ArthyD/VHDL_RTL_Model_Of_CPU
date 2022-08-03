@@ -25,7 +25,7 @@ end datapath_input_controler;
 
 architecture RTL of datapath_input_controler is 
 begin
-    process_datapath_input_controler : process begin
+    process_datapath_input_controler : process(cmd_calc,calc_on_PC,pc,imm) begin
         if cmd_calc = '1' then
             output <= "00000000000000000000" & imm;
         elsif calc_on_PC = '1' then

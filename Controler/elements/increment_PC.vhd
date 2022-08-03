@@ -21,12 +21,17 @@ entity increment_PC is
 end increment_PC;
 
 architecture RTL of increment_PC is 
+    signal adder_input : data_type := "0000000000000000" & pc;
+    signal adder_output : data_type;
     begin
         add: entity work.adder(Behavioral)
         port map(
-            a	=>	"0000000000000000" & pc,
+            a	=>	adder_input,
             b	=>	"00000000000000000000000000000100",
             neg_b	=>	'0',
             s	=>	adder_output
         ); 
+        
+        pc_incr <= adder_output(15 downto 0);
+        
 end RTL;

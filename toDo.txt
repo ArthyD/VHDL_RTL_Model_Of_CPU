@@ -49,10 +49,10 @@ Remarks
 -> FSM + ID done
 -> PC controler done
 -> Memory interface
--> address_controler
--> datapath_input_controler
--> increment_PC
--> instruction_controler
+-> address_controler done
+-> datapath_input_controler done
+-> increment_PC done
+-> instruction_controler done
 -> Full controler
 
 ** Datapath **
