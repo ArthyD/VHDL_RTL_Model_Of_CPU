@@ -21,5 +21,5 @@ end SRA2;
 
 architecture Behavioral of SRA2 is
 begin
-    b <= a(31) & '0' & a(30 downto 1) ;
+    b <= a sra 1;
 end Behavioral;

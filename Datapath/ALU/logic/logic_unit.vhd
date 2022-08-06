@@ -23,9 +23,9 @@ port(
 end logic_unit;
 
 architecture Behavioral of logic_unit is
-    signal out_and : data_type:=(others =>'0');   
-    signal out_or : data_type:=(others =>'0');   
-    signal out_xor : data_type:=(others =>'0');
+    signal out_and: data_type;   
+    signal out_or: data_type;   
+    signal out_xor: data_type;
 begin
 
 and2: entity work.and2(Behavioral)
@@ -49,7 +49,7 @@ port map(
     c => out_xor
 ); 
 
-process_shifter : process(a,b,code) begin
+process_shifter : process(code, out_and, out_xor, out_or) begin
     case code is
         when code_and => s <= out_and;
         when code_or => s <= out_or;
@@ -57,6 +57,5 @@ process_shifter : process(a,b,code) begin
         when others => s <= (others =>'0');
     end case;
 end process;
-        
 end Behavioral;
 

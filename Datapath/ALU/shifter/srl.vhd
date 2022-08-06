@@ -21,5 +21,5 @@ end SRL2;
 
 architecture Behavioral of SRL2 is
 begin
-    b <= '0' & a(31 downto 1) ;
+    b <= a srl 1;
 end Behavioral;

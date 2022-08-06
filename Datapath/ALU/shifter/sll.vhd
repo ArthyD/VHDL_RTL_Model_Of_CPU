@@ -21,5 +21,5 @@ end sll2;
 
 architecture Behavioral of sll2 is
 begin
-    b <= a(30 downto 0)& '0' ;
+    b <= a sll 1;
 end Behavioral;

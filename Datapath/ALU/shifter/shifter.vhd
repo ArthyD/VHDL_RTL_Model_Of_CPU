@@ -22,9 +22,9 @@ Port (
 end shifter;
 
 architecture Behavioral of shifter is
-    signal out_SLL : data_type:=(others =>'0');   
-    signal out_SRL : data_type:=(others =>'0');   
-    signal out_SRA : data_type:=(others =>'0');
+    signal out_SLL: data_type;   
+    signal out_SRL: data_type;   
+    signal out_SRA: data_type;
 
 begin
 
@@ -46,7 +46,7 @@ port map(
     b => out_SRA
 );     
 
-process_shifter : process(a, code) begin
+process_shifter : process(code, out_SLL, out_SRL, out_SRA) begin
 case code is
 when code_sll => s <= out_SLL;
 when code_srl => s <= out_SRL;

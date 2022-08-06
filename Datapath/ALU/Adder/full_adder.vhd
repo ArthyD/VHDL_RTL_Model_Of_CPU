@@ -12,24 +12,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity full_adder is
-port (
-	a	:	in	bit;
-	b	:	in	bit;
-	cin	:	in	bit;
-	s	:	out	bit;
-	cout	:	out	bit
-);
+    port(
+        a, b, cin: in bit;
+        s, cout: out bit
+    );
 end entity;
 
 architecture Behavioral of full_adder is
-signal g, p : bit;
+    signal g, p: bit;
 begin
-
-p <= a xor b;
-g <= a and b;
-
-s <= p xor cin;
-
-cout <= g or (p and cin);
-
+    p <= a xor b;
+    g <= a and b;
+    
+    s <= p xor cin;
+    cout <= g or (p and cin);
 end Behavioral;
